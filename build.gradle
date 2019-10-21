@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        maven {
+            url "http://nexus.na.xom.com:8081/repository/maven-central/"
+        }
+
+        maven {
+            url "http://nexus.na.xom.com:8081/repository/maven-flcit/"
+        }
+
+        maven {
+            url "http://nexus.na.xom.com:8081/repository/maven-hosted/"
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.4.RELEASE"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.tw'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven {
+        url "http://nexus.na.xom.com:8081/repository/maven-central/"
+    }
+
+    maven {
+        url "http://nexus.na.xom.com:8081/repository/maven-flcit/"
+    }
+
+    maven {
+        url "http://nexus.na.xom.com:8081/repository/maven-hosted/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.projectlombok:lombok'
+    compile 'com.xom:api-request-validation:0.0.9-RELEASE'
+    compile 'com.xom.errors:error-handling:0.0.27-RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    compile 'org.apache.tomcat.embed:tomcat-embed-core:9.0.21'
+    compile 'org.apache.tomcat.embed:tomcat-embed-el:9.0.21'
+    compile 'org.apache.tomcat.embed:tomcat-embed-websocket:9.0.21'
+    compile 'org.apache.tomcat:tomcat-annotations-api:9.0.21'
+
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testCompile 'org.mockito:mockito-junit-jupiter:2.19.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+}
+
+
