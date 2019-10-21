@@ -17,6 +17,7 @@ public class User {
   @NotNull(code = "missing_value", message = "the value is required")
   private String age;
 
+  @ValidString(isEmail = true, code = "format_error", message = "the value must be email format")
   private String email;
 
   @ValidString(pattern = "\\d{11}", code = "format_error", message = "the value must be numbers with length of 11")
